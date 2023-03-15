@@ -1,0 +1,4 @@
+[wsl2]
+ipv6=true
+networkingMode=bridged
+vmSwitch=Ext

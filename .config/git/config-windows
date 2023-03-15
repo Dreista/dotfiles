@@ -1,0 +1,5 @@
+[core]
+	sshcommand = "C:/Users/Dreista/scoop/apps/openssh/current/ssh.exe"
+	symlinks = true
+[gpg "ssh"]
+	program = "C:/Users/Dreista/scoop/apps/openssh/current/ssh-keygen.exe"

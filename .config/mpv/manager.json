@@ -1,0 +1,24 @@
+[
+  {
+    "git": "https://github.com/po5/mpv_manager",
+    "whitelist": "%.lua$",
+    "dest": "~~/scripts"
+  },
+  {
+    "git": "https://github.com/po5/thumbfast",
+    "whitelist": "%.lua$",
+    "dest": "~~/scripts"
+  },
+  {
+    "git": "https://github.com/tomasklaen/uosc",
+    "branch": "main",
+    "whitelist": "%.lua$",
+    "dest": "~~/scripts"
+  },
+  {
+    "git": "https://github.com/tomasklaen/uosc",
+    "branch": "main",
+    "whitelist": "%.otf$|%.ttf$",
+    "dest": "~~/fonts"
+  }
+]

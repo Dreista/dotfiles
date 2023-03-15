@@ -1,0 +1,2 @@
+# Dotfiles
+Nothing but garbage.

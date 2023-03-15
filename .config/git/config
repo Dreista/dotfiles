@@ -1,0 +1,14 @@
+[core]
+	fsmonitor = true
+[user]
+	name = Dreista
+	email = Dreista@users.noreply.github.com
+	signingKey = SSH_KEY_HERE
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
+[tag]
+	gpgsign = true
+[include]
+	path = config-windows
