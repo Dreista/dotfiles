@@ -1,0 +1,69 @@
+shell = "zsh"
+
+[plugins]
+
+[plugins.powerlevel10k]
+github = 'romkatv/powerlevel10k'
+
+[plugins.zsh-defer]
+github = "romkatv/zsh-defer"
+
+[plugins.ohmyzsh-lib]
+github = "ohmyzsh/ohmyzsh"
+dir = "lib"
+use = ["{clipboard,completion,correction,directories,history,key-bindings,termsupport,theme-and-appearance}.zsh"]
+
+[plugins.ohmyzsh-plugins]
+github = "ohmyzsh/ohmyzsh"
+dir = "plugins"
+use = ["{colored-man-pages,docker,extract,pip}/*.plugin.zsh"]
+apply = ["defer"]
+
+[plugins.zsh-autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
+use = ["{{ name }}.zsh"]
+apply = ["defer"]
+
+[plugins.zsh-completions]
+github = "zsh-users/zsh-completions"
+apply = ["defer"]
+
+[plugins.zsh-syntax-highlighting]
+github = "zsh-users/zsh-syntax-highlighting"
+
+[plugins.zsh-history-substring-search]
+github = "zsh-users/zsh-history-substring-search"
+apply = ["defer"]
+
+### Inline plugins
+
+[plugins.termsupport-config]
+inline = '''
+if [[ -n "$SSH_CLIENT" ]] || [[ -n "$SSH_TTY" ]]; then
+  export ZSH_THEME_TERM_TAB_TITLE_IDLE="(%m) %c"
+fi
+'''
+
+[plugins.zsh-history-substring-search-keybindings]
+inline = '''
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+bindkey -M emacs '^P' history-substring-search-up
+bindkey -M emacs '^N' history-substring-search-down
+'''
+
+[plugins.wincrypt-ssh-agent]
+inline = '''
+if [ -n "$WSL_DISTRO_NAME" ]; then
+  export SSH_AUTH_SOCK=/tmp/wincrypt-hv.sock
+  ss -lnx | grep -q $SSH_AUTH_SOCK
+  if [ $? -ne 0 ]; then
+    rm -f $SSH_AUTH_SOCK
+    (setsid nohup socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork SOCKET-CONNECT:40:0:x0000x33332222x02000000x00000000 >/dev/null 2>&1)
+  fi
+fi
+'''
+profiles = ["wsl2"]
+
+[templates]
+defer = "{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}"
