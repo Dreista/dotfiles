@@ -1,14 +1,14 @@
-[core]
-	fsmonitor = true
+[commit]
+	gpgsign = true
+[gpg]
+	format = ssh
+[init]
+	defaultBranch = trunk
+[tag]
+	gpgsign = true
 [user]
 	name = Dreista
 	email = Dreista@users.noreply.github.com
-	signingKey = SSH_KEY_HERE
-[gpg]
-	format = ssh
-[commit]
-	gpgsign = true
-[tag]
-	gpgsign = true
+	signingKey = SSH_PUBKEY_HERE
 [include]
 	path = config-windows
