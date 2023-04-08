@@ -11,7 +11,7 @@ github = "romkatv/zsh-defer"
 [plugins.ohmyzsh-lib]
 github = "ohmyzsh/ohmyzsh"
 dir = "lib"
-use = ["{clipboard,completion,correction,directories,history,key-bindings,termsupport,theme-and-appearance}.zsh"]
+use = ["{clipboard,completion,correction,directories,functions,history,key-bindings,termsupport,theme-and-appearance}.zsh"]
 
 [plugins.ohmyzsh-plugins]
 github = "ohmyzsh/ohmyzsh"
