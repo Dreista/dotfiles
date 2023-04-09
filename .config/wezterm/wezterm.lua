@@ -15,6 +15,13 @@ if is_windows then
     })
 end
 
+local ssh_domains = wezterm.default_ssh_domains()
+if is_windows then
+    for _, domain in ipairs(ssh_domains) do
+        domain.ssh_option.identityagent = os.getenv('USERPROFILE') .. '\\wincrypt-wsl.sock'
+    end
+end
+
 return {
     color_scheme = 'Dracula+',
     default_cursor_style = 'BlinkingUnderline',
@@ -31,6 +38,7 @@ return {
     launch_menu = launch_menu,
     macos_window_background_blur = 20,
     native_macos_fullscreen_mode = true,
+    ssh_domains = ssh_domains,
     window_background_opacity = 0.95,
     window_close_confirmation = is_macos and 'NeverPrompt' or 'AlwaysPrompt',
     window_decorations = 'TITLE | RESIZE | MACOS_FORCE_ENABLE_SHADOW',
