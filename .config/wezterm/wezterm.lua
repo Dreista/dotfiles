@@ -39,6 +39,7 @@ return {
     macos_window_background_blur = 20,
     native_macos_fullscreen_mode = true,
     ssh_domains = ssh_domains,
+    win32_system_backdrop = "Acrylic",
     window_background_opacity = 0.95,
     window_close_confirmation = is_macos and 'NeverPrompt' or 'AlwaysPrompt',
     window_decorations = 'TITLE | RESIZE | MACOS_FORCE_ENABLE_SHADOW',
