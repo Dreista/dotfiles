@@ -13,6 +13,10 @@ if is_windows then
         label = 'PowerShell',
         args = {os.getenv('USERPROFILE') .. '\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe'}
     })
+    table.insert(launch_menu, {
+        label = 'Command Prompt',
+        args = {'cmd.exe'}
+    })
 end
 
 local ssh_domains = wezterm.default_ssh_domains()
@@ -42,7 +46,7 @@ return {
     win32_system_backdrop = "Acrylic",
     window_background_opacity = 0.95,
     window_close_confirmation = is_macos and 'NeverPrompt' or 'AlwaysPrompt',
-    window_decorations = 'TITLE | RESIZE | MACOS_FORCE_ENABLE_SHADOW',
+    window_decorations = 'TITLE | RESIZE | INTEGRATED_BUTTONS | MACOS_FORCE_ENABLE_SHADOW',
     window_frame = {
         font = wezterm.font_with_fallback {{
             family = 'Sarasa UI SC'
