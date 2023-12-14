@@ -1,4 +1,5 @@
 [wsl2]
+dnsTunneling=true
 ipv6=true
-networkingMode=bridged
-vmSwitch=Ext
+kernelCommandLine=cgroup_no_v1=all
+networkingMode=mirrored
